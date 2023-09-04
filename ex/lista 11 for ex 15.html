@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_elefante" placeholder="Elefantes">
+    <button onclick="atazanar()">Atazanar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+
+function atazanar() {
+
+    var elefante = Number (ipt_elefante.value);
+    var frase = ' incomodam '
+
+    for (var contador = 1; contador <= elefante; contador++) {
+         (contador  == 1) 
+            div_msg.innerHTML += ` 1 elefante incomoda muita gente <br> ${contador +1} elfante`
+            
+       
+            for (var contador2 = 0; contador2 <= contador; contador2++) {
+
+                div_msg.innerHTML += ` incomodam  `    
+                
+            }
+            div_msg.innerHTML += 'Muito mais <br>'
+        
+         
+     }
+
+   
+}
+
+</script>
+

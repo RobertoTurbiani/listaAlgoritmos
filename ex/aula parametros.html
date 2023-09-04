@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_n1" placeholder="N1">
+    <input id="ipt_n2" placeholder="N2">
+    <input id="ipt_op" placeholder="Operação">
+    <button onclick="calcular()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    
+
+    function calcular() {
+        
+        var n1 = Number(ipt_n1.value);
+        var n2 = Number(ipt_n2.value);
+        var Operacao = ipt_op.value;
+
+        var resultado;
+
+        if ( operacao == '/') {
+            resultado = n1 / n2
+            div_msg.innerHTML = `O resultado é: ${resultado}`
+
+        } else if (operacao == '*'){
+            resultado = n1 * n2
+            div_msg.innerHTML = `O resultado é: ${resultado}`
+
+
+        } else if (operacao == '-'){
+            resultado = n1 * n2
+            div_msg.innerHTML = `O resultado é: ${resultado}`
+        
+
+        }  else if (operacao == '+'){
+            resultado = n1 * n2
+            div_msg.innerHTML = `O resultado é: ${resultado}`
+
+        } else {
+            alert ('Informe uma operação válida')
+        }
+
+
+    }
+
+
+</script>

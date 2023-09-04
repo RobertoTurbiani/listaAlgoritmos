@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_candidato_A" placeholder="candidato A">
+    <input id="ipt_candidato_B" placeholder="candidato B">
+    <input id="ipt_vtBranco" placeholder="votos brancos">
+    <input id="ipt_vtNulo" placeholder="votos nulos">
+    <br>
+    <button onclick="eleicao()">Resultados da Eleição</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function eleicao() {
+        
+        var candidatoA = Number (ipt_candidato_A.value);
+        var candidatoB = Number (ipt_candidato_B.value);
+        var branco = Number (ipt_vtBranco.value);
+        var nulo = Number (ipt_vtNulo.value);
+        var total = candidatoA + candidatoB + branco + nulo;
+        var invalido =  branco + nulo;
+
+        div_msg.innerHTML += `Total de votos: <u>${total}</u> <br>
+        Candidato A: ${candidatoA*100/total}% (votos${candidatoA}) <br>
+        Candidato B: ${candidatoB*100/total}% (votos${candidatoB})<br>
+        Inválidos: ${invalido*100/total}% (votos${invalido})
+       
+        `
+    }
+
+</script>

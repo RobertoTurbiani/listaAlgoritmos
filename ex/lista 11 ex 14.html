@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_idade" placeholder="Idade">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var idade = Number (ipt_idade.value);
+        var contador = 0
+
+        while (contador <= idade) {
+            
+            if (contador < 4) {
+                div_msg.innerHTML += `Primeira Infância: ${contador} <br>`
+            } else if ( contador <6) {
+                div_msg.innerHTML += `pré-escolar: ${contador} <br>`
+            } else if (contador <10) {
+                div_msg.innerHTML += `Segunda Infância: ${contador} <br>`
+            } else if (contador < 18)
+                div_msg.innerHTML += `Adolescência: ${contador} <br>`
+              else if (contador <50){
+                div_msg.innerHTML += `Adulto: ${contador} <br>`
+            } else if (contador <= 100){
+                div_msg.innerHTML += `Melhor idade: ${contador} <br>`
+            } else {
+                div_msg.innerHTML += `Matusalém: ${contador} <br>`
+            }
+            contador ++
+        }
+
+    }
+
+
+</script>

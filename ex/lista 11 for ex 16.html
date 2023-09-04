@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_pessoa" placeholder="Pessoas">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var pessoas = Number (ipt_pessoa.value);
+
+        for (var contador = 1; contador <= pessoas; contador++) {
+
+            if (contador == 1) {
+                div_msg.innerHTML += `Entrou o ${contador}° passageiro (que é o(a) motorista) <br>`
+            } else if (contador <=5) {
+                div_msg.innerHTML += `Entrou o ${contador}° passageiro <br>`
+            } else {
+                div_msg.innerHTML += `Entrou o ${contador}° passageiro terá que esperar! <br>`
+            }
+        }
+
+    }
+
+
+</script>

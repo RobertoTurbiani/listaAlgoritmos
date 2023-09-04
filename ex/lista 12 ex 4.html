@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_time1" placeholder="Time 1">
+    <input id="ipt_time2" placeholder="Time 2">
+    <br>
+    <input id="ipt_vitorias1" placeholder="Vitorias do time 1">
+    <input id="ipt_vitorias2" placeholder="Vitorias do time 2">
+    <br>
+    <input id="ipt_empates1" placeholder="Empates do time 1">
+    <input id="ipt_empates2" placeholder="Empates do time 2">
+    <br>
+    <input id="ipt_derrotas1" placeholder="Derrotadas time 1">
+    <input id="ipt_derrotas2" placeholder="Derrotadas time 2">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+
+        
+        var totalPartidas1 = Number (ipt_vitorias1.value + ipt_derrotas1.value + ipt_empates1.value);
+        var totalPartidas2 = Number (ipt_vitorias2.value + ipt_derrotas2.value + ipt_empates2.value);
+
+        var nomeTime1 = ipt_time1.value
+        var nomeTime2 = ipt_time2.value
+
+        if (totalPartidas1 == totalPartidas2) {
+            
+            var campeonato = {
+                
+        
+                time3: "Juventus da Mooca",
+                vitoria1: Number(ipt_vitorias1.value),
+                vitoria2: Number(ipt_vitorias2.value),
+                empates1: Number(ipt_empates1.value),
+                empates2: Number(ipt_empates2.value),
+                derrotas1: Number(ipt_derrotas1.value),
+                derrotas2: Number(ipt_derrotas2.value),
+                analisarCampeonato: function (){
+                var pontos1 = this.vitoria1 * 3 + this.empates1
+                var pontos2 = this.vitoria2 * 3 + this.empates2
+                div_msg.innerHTML += ` O time ${nomeTime1} terminou o campeonato com ${pontos1} pontos <br>`;
+                div_msg.innerHTML += ` O time ${nomeTime2} terminou o campeonato com ${pontos2} pontos <br>`;
+            }
+                }   
+               campeonato.analisarCampeonato();
+
+               
+               
+            }
+            else {
+                
+                alert (`Numero de partidas diferentes`);
+      
+    }
+    } 
+
+</script>

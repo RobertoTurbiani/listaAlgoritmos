@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Sortear</button>
+    <img src="" height="150px">
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function sortear() {
+        
+        var jokenpo = Math.random();
+
+        if (jokenpo <= 0.33) {
+            div_msg.innerHTML = `<img src="https://images.tcdn.com.br/img/img_prod/479726/bornita_pedra_bruta_2323_1_c0d8d7deb71cb56e3f4426096ec2374c.jpeg" height="150px">`
+        } else if (jokenpo <= 0.66){
+            div_msg.innerHTML = `<img src="https://images.tcdn.com.br/img/img_prod/626493/tesoura_de_alfaiate_wayken_2215_1_004de1aa1d8cd90bdcfbb801750f06b6.png" height="150px">`
+        } else {
+            div_msg.innerHTML = `<img src="https://cdn.entrypoint.directory/assets/46588/produtos/1521/0cc07058b2fb94d7b206ad6084817a71627ac479a67a3.png" height="150px">`
+        }
+
+
+    }
+
+
+</script>

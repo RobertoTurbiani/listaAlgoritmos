@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_idade" placeholder="Idade">
+    <input id="ipt_cnh" placeholder="Tem CNH">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+function analisar() {
+    
+    var idade = Number (ipt_idade.value);
+    var cnh =  ipt_cnh.value;
+
+    if (idade >= 18 && cnh == 'S') {
+        div_msg.innerHTML = `Você pode dirigir`
+    } else if (idade >= 18 && cnh == 's') {
+        div_msg.innerHTML = `Você pode dirigir`
+    } else{
+        div_msg.innerHTML = `Você não pode dirigir `
+    }
+
+}
+
+
+
+</script>

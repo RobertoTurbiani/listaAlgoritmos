@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Quantidade:</h1>
+    <input id="ipt_qtd_macaron" placeholder="Quantidade de Doces Macaron Vendidos:">
+    <input id="ipt_qtd_brigadeiro" placeholder="Quantidade de Doces Brigadeiro Vendidos:">
+    <input id="ipt_qtd_cupcake" placeholder="Quantidade de Doces CupCakes Vendidos:">
+    <input id="ipt_qtd_cheesecake" placeholder="Quantidade de Doces Cheesecakes Vendidos:">
+    <br><br>
+    <h1>Preço</h1>
+    <input id="ipt_preco_macaron" placeholder="Valor dos Doces Macaron Vendidos:">
+    <input id="ipt_preco_brigadeiro" placeholder="Valor dos Doces Brigadeiro Vendidos:">
+    <input id="ipt_preco_cupcake" placeholder="Valor dos Doces CupCakes Vendidos:">
+    <input id="ipt_preco_cheesecakes" placeholder="Valor dos Doces Cheesecakes Vendidos:">
+    <br><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var qtdMacaron = Number (ipt_qtd_macaron.value);
+        var qtdBrigadeiro = Number (ipt_qtd_brigadeiro.value);
+        var qtdCupcake = Number (ipt_qtd_cupcake.value);
+        var qtdCheesecake = Number (ipt_qtd_cheesecake.value);
+        
+        var qtdTotalVendas = qtdMacaron + qtdBrigadeiro + qtdCupcake + qtdCheesecake 
+
+        var precoMacaron = Number(ipt_preco_macaron.value);
+        var precoBrigadeiro = Number(ipt_preco_brigadeiro.value);
+        var precoCupcake = Number(ipt_preco_cupcake.value);
+        var precoCheesecakes = Number(ipt_preco_cheesecakes.value);
+        
+
+        var quantidadePositiva = qtdMacaron >=0 && qtdBrigadeiro >=0 && qtdCupcake >=0 && qtdCheesecake >=0;
+        var precoPositivo = precoMacaron >=0 && precoBrigadeiro >=0 && precoCupcake >= 0 && precoCheesecakes >= 0 
+        var total = quantidadePositiva && precoPositivo
+        var valorTotal = (precoMacaron * qtdMacaron) + (precoBrigadeiro * qtdBrigadeiro) + (precoCupcake * qtdCupcake) + (precoCheesecakes * qtdCheesecake)
+
+        div_msg.innerHTML = ""
+
+        if (quantidadePositiva && precoPositivo) {
+                
+                for (var contadorVendas = 1; contadorVendas <= qtdTotalVendas; contadorVendas++) {
+                    
+                    for (var contadorMacaron = 1; contadorMacaron <= qtdMacaron; contadorMacaron++) {
+                            div_msg.innerHTML += ` Venda: ${contadorVendas} <img src="https://a-static.mlcdn.com.br/1500x1500/macarons-doces-finos-embalagem-com-20-macarons-madu-macarons-doceria/madumacarons-doceria/c3ff12f235fa11ecb2194201ac185033/3e087bcb5a369080610039d3ea4ec26b.jpeg"  width="50px"> ${precoMacaron} <br>`
+
+                            contadorVendas++
+                        
+                    }
+                
+                    for (var contadorBrigadeiro = 1; contadorBrigadeiro <= qtdBrigadeiro; contadorBrigadeiro++) {
+                            div_msg.innerHTML += ` Venda: ${contadorVendas} <img src="https://s2.glbimg.com/2MF5LvevjuYczLNtzsuGBlOpsbg=/0x0:638x359/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2021/e/j/Kn1yDXQSeKr4GmAzDXQQ/receita-de-brigadeiro-tradicional.png"  width="50px"> ${precoBrigadeiro} <br>`
+
+                            contadorVendas++
+
+                        
+                    }
+
+                    for (var contadorCupcake = 1; contadorCupcake <= qtdCupcake; contadorCupcake++) {
+                            div_msg.innerHTML += ` Venda: ${contadorVendas} <img src="https://cozinhalegal.com.br/wp-content/uploads/2020/03/Receita-de-Cupcake-de-Baunilha-7-1.jpg"  width="50px"> ${precoCupcake} <br>`
+
+                            contadorVendas++
+
+                        
+                    }
+
+                    for (var contadorCheesecake = 1; contadorCheesecake <= qtdCheesecake; contadorCheesecake++) {
+                            div_msg.innerHTML += ` Venda: ${contadorVendas} <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/8fafc3935c766bf8c9f1331a325e48a9.jpg"  width="50px"> ${precoCheesecakes} <br>`
+
+                            contadorVendas++
+
+                        
+                    }
+                    div_msg.innerHTML += `Com a quantidade de ${qtdMacaron} Macarons, ${qtdBrigadeiro} Brigadeiros, ${qtdCupcake} Cupcakes e ${qtdCheesecake} Cheesecakes, a venda totalizará  ${valorTotal}`
+                }
+
+            
+    }   else{
+            alert (`Valor invalido`)
+        }
+ 
+
+
+    }
+
+</script>
+
+
+<!--
+
+d) De acordo com a quantidade de cada produto informado, exiba um extrato contendo: 
+
+        "NÚMERO DA VENDA   -   IMAGEM DO DOCE   -   R$ VALOR UNITÁRIO"
+
+e) A ordem de listagem dos doces sempre será: 
+
+          Primeiro os "Macarons"
+          Logo após, os "Brigadeiros"
+          Em seguida, os "Cupcakes"
+          Por último, os "Cheesecakes" 
+
+Caso a quantidade de algum desses doces seja 0, deve pular para a listagem do próximo doce, continuando a contagem da venda (ou seja, caso pule a listagem dos "Macarons", deve começar direto com o "Brigadeiro" sendo a primeira venda).
+
+e) Ao finalizar a listagem, deve exibir uma mensagem com uma frase como esta: 
+
+        "Com a quantidade de 1111 Macarons, 2222 Brigadeiros, 3333 Cupcakes e 4444 Cheesecakes, a venda totalizará R$5555"
+
+OBS: note que são 4 entradas para o item a) e mais 4 entradas para o item b).
+
+OBS II: crie as tags img através do JavaScript para gerar as imagens dos doces dinamicamente, de acordo com cada mensagem exibida, utilizando imagens pequenas para facilitar a visualização das linhas.
+
+OBS III: repare que no exemplo de funcionamento, ele pula os Cupcakes, porém continua a contagem da venda.
+
+EXEMPLO DE FUNCIONAMENTO: 
+
+           "Venda 1 - <Imagem de Macaron> - R$3.99"
+
+           "Venda 2 - <Imagem de Macaron> - R$3.99"
+
+           "Venda 3 - <Imagem de Brigadeiro> - R$4.99"
+
+           "Venda 4 - <Imagem de Brigadeiro> - R$4.99"
+
+           "Venda 5 - <Imagem de Brigadeiro> - R$4.99"
+
+           "Venda 6 - <Imagem de Cheesecake> - R$6.99"
+
+           "Venda 7 - <Imagem de Cheesecake> - R$6.99"
+
+           "Com a quantidade de 2 Macarons, 3 Brigadeiros, 0 Cupcakes e 2 Cheesecakes, a venda totalizará R$36.93"
+
+
+
+ -->
+
+
+ <!--  1. Dori Valdossin é dono de uma doceria em São Paulo, onde a sua especialidade são os doces gourmets.
+
+Seu estabelecimento trabalha com diversos tipos de doces gourmets, porém os mais famosos do seu menu são: 
+
+- Macarons: um doce francês feito com duas conchas de amêndoa com recheio no meio, que são populares por sua aparência colorida e delicada, bem como seus sabores únicos;
+
+- Brigadeiros: um doce brasileiro feito com leite condensado, manteiga e chocolate em pó, que nas versões gourmet, geralmente apresentam sabores inovadores e criativos, como creme de avelã, limão siciliano, café, entre outros;
+
+- Cupcakes: mini bolos decorados com glacê e recheados com sabores deliciosos, como baunilha, chocolate, red velvet, entre outros, dos quais são populares em casamentos, festas de aniversário e outros eventos;
+
+- Cheesecakes: uma sobremesa feita com cream cheese, açúcar e biscoitos triturados para a base, nos quais geralmente apresentam sabores como framboesa, caramelo salgado, limão, entre outros;
+
+Para auxiliar Dori, crie um programa o qual: 
+
+a) Solicite a quantidade de cada doce a ser vendido (Macarons, Brigadeiros Gourmets, Cupcakes e Cheesecakes).
+
+b) Solicite o preço da unidade de cada tipo de doce. 
+
+c) Ao clicar no botão "Verificar Vendas", caso todos os valores estejam preenchidos e não sejam negativos, prossiga. Caso contrário, exiba uma mensagem de erro explicativa e encerre.
+
+-->

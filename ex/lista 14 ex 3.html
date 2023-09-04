@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Sortear</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function sortear() {
+        var dados = Math.random();
+
+        if (dados < 0.17) {
+            div_msg.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoSG697Si0NLdp3vrUI6wTGOtIo_6PvpTzAK63AiXag2LHEYgCPLBvsajCeN_i28sWugU&usqp=CAU" height"150px">`
+        } else if (dados < 0.34) {
+            div_msg.innerHTML = `<img src="https://www.ludeka.com.br/image/cache/data/componentes/D-06/dado-preto-800x800.jpg" height"150px">`
+        } else if (dados < 0.51) {
+            div_msg.innerHTML = `<img src="https://thumbs.dreamstime.com/b/dados-1245106.jpg" height"150px">`
+        } else if (dados < 0.68) {
+            div_msg.innerHTML = `<img src="https://cdn.pixabay.com/photo/2016/03/31/19/19/dice-1294902_640.png" height"150px">`
+        } else if (dados < 0.85) {
+            div_msg.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdE-G0s1imGq0SxvTCx4dq9VwDS37j7KZrww&usqp=CAU" height"150px">`
+        } else {
+            div_msg.innerHTML = `<img src="https://img.freepik.com/fotos-premium/numero-2-em-dados-limpos-vista-do-topo_118047-6753.jpg" height"150px">`
+        }
+    }
+
+</script>
+
+<!-- 
+3. Crie um programa o qual: 
+
+a) Tenha um botão "jogar dado" 
+
+b) Ao clicar nele, sorteie um dos 6 números de um dado e mostre a figura do lado do dado que foi sorteada 
+
+ -->

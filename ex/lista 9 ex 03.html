@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span style="color: blue;">
+        <span id="span_msg">Total guardado no cofrinho: R$0</span>
+        <br>
+        <h4 id="h4_deposito">Depósitos efetuados: 0</h4>
+        <br>
+        <h4 id="h4_retirada">Retiradas efetuadas: 0</h4>
+    </span>
+    <br><br>
+    <button onclick="depositar50()">Depositar 0.50</button>
+    <button onclick="depositar2()">Depositar 2.00</button>
+    <button onclick="retirar50()">Retirar 0.50</button>
+    <button onclick="retirar()">Retirar Tudo</button>
+</body>
+</html>
+<script>
+
+    var total = 0;
+    var deposito = 0;
+    var retirada = 0;
+
+    function depositar50() {
+        
+
+        span_msg.innerHTML = `Total guardado no cofrinho R$${total += 1/2} <br>`
+        h4_deposito.innerHTML =  `Depósitos efetuados: ${deposito +=1}`
+
+    }
+
+    
+    function depositar2() {
+        
+
+        span_msg.innerHTML = `Total guardado no cofrinho R$${total += 2} <br>`
+        h4_deposito.innerHTML =  `Depósitos efetuados: ${deposito +=1}`
+
+    }
+
+    function retirar50() {
+        
+
+        span_msg.innerHTML = `Total guardado no cofrinho R$${total -= 1/2} <br>`
+        h4_retirada.innerHTML =  `Retiradas efetuadas: ${retirada +=1}`
+
+    }
+
+    function retirar() {
+        span_msg.innerHTML = `Total guardado no cofrinho R$${total -= total } <br>`
+        h4_deposito.innerHTML =  `Depósitos efetuados: ${deposito -= deposito}`
+        h4_retirada.innerHTML =  `Retiradas efetuadas: ${retirada -= retirada}`
+
+    }
+
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_kw" placeholder="KWh Do mes">
+    <button onclick="calcular()">Calcular conta de luz </button>
+</body>
+</html>
+<script>
+
+    function calcular() {
+        
+        var kw = Number (ipt_kw.value)
+        var conta = 0.85 * kw
+        
+        
+    if ( conta <=100) {
+        alert ('O valor da conta é R$' + conta *0.9 );
+    }    
+    if (conta >100) {
+        alert ('O valor da conta é  R$' + conta );
+    }
+
+    }
+
+
+</script>
+

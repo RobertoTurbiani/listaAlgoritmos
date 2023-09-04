@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ordenar()">ordenar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    var lista = [1,5,2,3,6,8,7,0,9,4];
+    var ordenado = []
+    var menor = 0
+    var maior = 0
+    
+    function ordenar() {
+        
+        var l = 0
+
+        while (l < lista.length) {
+            for (var i = 0; i < lista.length; i++) {
+                var proximo = i + 1
+                if (lista[i] > lista[proximo]) {
+                    var aux = lista[i]
+                    lista[i] = lista[proximo]
+                    lista[proximo] = aux
+                }
+            }
+            l++
+               
+            div_mensagem.innerHTML = lista
+        }
+    }
+
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_numero" placeholder="Número">
+    <button onclick="historico()">histórico</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var historicoNumeros = [];
+
+    function historico() {
+    
+    var maior = 0;
+    var menor = 0;
+        
+    var numeros = Number (ipt_numero.value);
+
+    historicoNumeros.push(numeros);
+
+    div_msg.innerHTML = ''
+    for (var i = 0; i < historicoNumeros.length; i++) {
+        
+        div_msg.innerHTML += `${i + 1}° Número ${historicoNumeros[i]} <br>`
+
+        if (maior < historicoNumeros[i]) {
+            maior = i
+        } 
+
+        if (menor > historicoNumeros[i]) {
+            menor = i
+        }
+      
+    }
+    div_msg.innerHTML += `Maior número ${historicoNumeros[maior]}<br>
+                          Menor número ${historicoNumeros[menor]} <br>`
+
+    }
+
+
+</script>
+
+<!-- 
+16 (clássico). Crie um programa o qual: 
+
+a) Tenha um campo "Digite um número qualquer". 
+
+b) Tenha um botão "Analisar histórico". Ao clicar nele, o número é cadastrado em algum lugar e, em seguida, deve aparecer um histórico dos números cadastrados, bem como o maior e o menor, como no exemplo a seguir: 
+
+   1º Número: 15 
+
+   2º Número: 22 
+
+   3º Número: 19 
+
+   4º Número: 5 
+
+ 
+
+   Maior: 22 
+
+   Menor: 5  -->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="analisar()">Analisar</button>
+    <input id="ipt_mensagem" placeholder="Mensagem">
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+
+        var mensagem = ipt_mensagem.value
+        
+        for (var contador = 1; contador <= 7; contador++) {
+            
+            div_msg.innerHTML += `${contador}. ${mensagem} <br>`
+            
+        }
+
+    }
+
+</script>
+

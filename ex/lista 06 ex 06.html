@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_nome" placeholder="Nome do Time">
+    <button onclick="avaliar()">Fale sobre esse time</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function avaliar() {
+        var nome = ipt_nome.value;
+
+        if (nome =='Corinthians') {
+            div_msg.innerHTML = (`<span style="color: white; background-color: black;"> Salve o Corinthians</span>`)
+        } else if (nome == 'Palmeiras'){
+            div_msg.innerHTML = (`<span style="color: white; background-color: green;;">Salve o alviverde imponente</span>`)
+        } else if ( nome == 'Santos'){
+            div_msg.innerHTML = (`<span style="color: black; background-color: white;">Agora que dá a bola é o Santos</span>`) 
+        } else if ( nome == 'São Paulo') {
+            div_msg.innerHTML = (` <span style="color: red; background-color: black;"">Salve o Tricolor paulista</span>`) 
+        }
+    }
+</script>

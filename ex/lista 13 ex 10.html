@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_linha" placeholder="Linhas">
+    <input id="ipt_pesquisa" placeholder="Pesquisa">
+    <button onclick="gravar()">Gravar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var listaLinhas = [];
+
+    function gravar() {
+        
+        listaLinhas.push(ipt_linha.value);
+
+        div_msg.innerHTML = ''
+        for (var posicao = listaLinhas.length - 1; posicao >= 0 ; posicao--) {
+            
+            div_msg.innerHTML += `${listaLinhas[posicao]} <br>`;
+        }
+    }
+
+    var listaOcorrencia = []
+    function pesquisar() {
+        var pesquisa = ipt_pesquisa.value;
+
+        for (var posicao = 0; posicao < listaLinhasR.length; posicao++) {
+
+            var linhaAtual = listaLinhas[posicao];
+                if (listaLinhas == linhaAtual) {
+                    listaOcorrencia.push(posicao +1) 
+                }
+        }
+
+        if (listaOcorrencia.length == 0) {
+            div_msg.innerHTML = `Você nunca pegou essa linha`
+        } else {
+            div_msg.innerHTML = `Você já pegou essa linha ${listaOcorrencia.length} vezes, nessa ordem
+            ${listaOcorrencia}`
+
+        }
+    }
+
+
+</script>

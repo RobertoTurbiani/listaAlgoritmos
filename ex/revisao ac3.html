@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="exibir()">Exibir</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var lista = [10,20,30,40,50,55,20];
+    var maior = lista[0];
+    var menor = lista[0];
+
+    var min = 2;
+    var max = 10;
+
+    function exibir() {
+
+        div_msg.innerHTML = ''
+        // for (var i = 0; i < lista.length; i++) {
+        //     div_msg.innerHTML += `${lista[i]} <br>`
+        // }
+
+        for (var i = lista.length -1 ; i >= 0 ; i--) {
+            // div_msg.innerHTML += `${lista[i]} <br>`
+            var numero_atual = lista[i]
+
+            if (numero_atual >= min && numero_atual <= max) {
+                
+             div_msg.innerHTML += `${numero_atual}<br>`   
+            }
+            // if (numero_atual > maior) {
+            //     maior = numero_atual;
+            // }
+
+            // if (numero_atual < menor) {
+            //     menor = numero_atual
+            // }
+          
+            // if (maior < lista[i]) {
+            //     maior = lista[i]
+            // } 
+
+            // if (menor > lista[i]) {
+            //     menor = lista[i]
+            // }
+        }
+        
+        // div_msg.innerHTML += `${maior} <br>
+        // ${menor} <br>`
+        
+        // div_msg.innerHTML += `
+        // ${lista[0]} <br>
+        // ${lista[1]} <br>
+        // ${lista[2]} <br>
+        // ${lista[3]} <br>
+        // ${lista[4]} <br>
+        // ${lista[5]} <br>
+        // ${lista[6]} <br>
+        // ${lista[7]} <br>
+        // ${lista[8]} <br>
+        // ${lista[9]} <br>
+        // `
+    }
+
+
+   
+</script>

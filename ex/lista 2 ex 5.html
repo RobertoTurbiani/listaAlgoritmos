@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="ipt_passagem" placeholder="Valor da passagem">
+    <input id="ipt_qtdViagem" placeholder="Quantidades de viagens">
+    <input id="ipt_distancia" placeholder="Distancia do trabalho">
+    <button onclick="calcular()">Calcular VT</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+
+    function calcular() {
+
+        var viagem = Number(ipt_qtdViagem.value);
+        var passagem = Number(ipt_passagem.value);
+        var distancia = Number(ipt_distancia.value);
+
+        var onibus = ((viagem *90) / 100) * passagem;
+        var aplicativo = ((viagem *10)/100) + (0.75 * distancia);
+        
+       
+        var total = onibus + aplicativo * distancia;
+
+
+        div_msg.innerHTML = ` Você vai gastar R$${total} por mês com transporte.`;
+    }
+
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="h2_contador">"Você já clicou 0 vezes";</h2>
+    <br>
+    <button onclick="aumentar()">Aumentar</button>
+</body>
+</html>
+<script>
+    
+    function aumentar() {
+        
+        
+        var contador = Number (h2_contador.innerHTML)    
+        contador+= 1
+        
+
+
+        h2_contador.innerHTML = `"Você já clicou ${contador} vezes";`
+
+    }
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="sel_time">
+        <option value="1">Vitória</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select>
+    Indique o resultado
+
+    <button onclick=" registrar()">Registrar Jogo</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var timesVit = []
+    var timesEmp = []
+    var timesDer = []
+    var jogos = 0
+
+    function registrar() {
+        
+        var time = sel_time.value;
+        
+        if (time == 1) {
+            timesVit.push(time);
+        } else if (time == 2){
+            timesEmp.push(time);
+        } else {
+            timesDer.push(time);
+            
+        }
+
+        jogos = timesVit.length + timesEmp.length + timesDer.length;
+
+        var pontos = timesVit.length * 3 + timesEmp.length;
+        var total = jogos * 3
+
+        div_msg.innerHTML = `
+        O time teve: ${timesVit.length} vitórias, <br>
+        ${timesEmp.length}empates, <br>
+        ${timesDer.length} derrotas 
+
+        Pontuação total: ${(timesVit.length * 3 + timesEmp.length)} pontos <br>
+
+        Aproveitamento: ${(100 * pontos / total).toFixed(1)}% `
+        
+    }
+</script>

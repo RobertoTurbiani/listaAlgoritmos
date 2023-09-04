@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_intervalo_menor" placeholder="Intervalo Menor">
+    <input id="ipt_intervalo_maior" placeholder="Intervalo Maior">
+    <input id="ipt_nome" placeholder="Nome">
+    <input id="ipt_altura" placeholder="Altura">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+
+        var intervaloMenor = Number (ipt_intervalo_menor.value);
+        var intervaloMaior = Number (ipt_intervalo_maior.value);
+        var nome = ipt_nome.value;
+        var altura = Number (ipt_altura.value);
+
+        if (intervaloMenor > 1 && intervaloMaior > intervaloMenor) {
+            if (altura >= intervaloMenor && altura <= intervaloMaior) {
+                div_msg.innerHTML = (`O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto`)
+            } else {
+                div_msg.innerHTML = (`Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos`)
+            }
+
+        } else { 
+                alert (`NÃO SEGUIR EM FRENTE`)
+            }
+        
+    }
+
+</script>

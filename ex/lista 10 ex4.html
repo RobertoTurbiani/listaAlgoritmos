@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_idade" placeholder="Idade">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+    <h3 id="h3_msg"></h3>
+</body>
+</html>
+<script>
+
+    
+
+    function analisar() {
+        
+        var idade = Number (ipt_idade.value);
+        
+        var valor = idade
+
+        var infancia = valor <= 12
+        var adolescente = valor <= 18 && valor > infancia
+        var idoso = valor >= 65
+        
+        var ponto = Number(1)
+        
+
+        if (infancia) {
+            div_msg.innerHTML = (`Já passou pela infância:`)
+            h3_msg.innerHTML = `Total de pontos: ${ponto*10} `   
+        } else if (adolescente) {
+            div_msg.innerHTML = (`Já passou pela adolescência:`)
+            h3_msg.innerHTML = `Total de pontos: ${ponto*20} `   
+
+        } else if (idoso) {
+            div_msg.innerHTML = (` Já é um idoso:` )
+            h3_msg.innerHTML = `Total de pontos: ${ponto*50} `   
+
+        }
+    }
+    
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_inicial" placeholder="Número inicial">
+    <input id="ipt_final" placeholder="Número final">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        var inicial = Number(ipt_inicial.value);
+        var final = Number(ipt_final.value);
+     
+        if (inicial>= 0 && final > inicial) {
+    
+            for (var contador = 1; contador <= final; contador++) {
+                
+                if (contador % 2 == 0) {
+                    
+                    div_msg.innerHTML += `${contador} <br>`
+                } 
+                
+            }
+        }
+
+         else {   
+        alert (`Número invalido`)
+    }
+    }
+
+</script>

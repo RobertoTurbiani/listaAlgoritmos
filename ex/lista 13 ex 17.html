@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .campo{
+           
+            margin-left: 15%;
+            padding-left: 30px;
+            height: 250px;
+            width: 900px;
+            border: 2px solid blue;
+            color: orangered;
+        }
+
+    
+        .campo input {
+            
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 2px solid orangered;
+        }
+
+        .botao button{
+            margin-top: 70px;
+            border:  2px solid orangered;
+            background-color: transparent;
+            color: orangered;
+        }
+
+        .campo #div_msg{
+            display: flex;
+            justify-content: center;
+        }
+
+        .campo #div_msg2{
+            display: flex;
+            justify-content: center;
+        }
+
+        
+        </style>
+</head>
+<body>
+    <div id="parte1" class="campo">
+        <h2>Análise de Performance de Alunos - Registros</h2>
+        Entre com o Nome do aluno: <input id="ipt_nome">
+        <br>
+        Entre com a Nota do aluno: <input id="ipt_nota">
+        <div class="botao">
+            <button onclick="registrar()">Registrar</button>
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        <div id="div_msg"></div>
+    </div>
+    
+    <div id="parte2" style="display: none;">
+
+        <div class="campo">
+            <h2>Análise de Performance de Alunos - Registros</h2>
+            <div class="form">
+                Entre com o intervalo de notas: <input id="ipt_minimo" placeholder="de" > 
+                <input id="ipt_maximo" placeholder="até">
+            </div>
+            <div class="botao">
+                <button onclick="pesquisar()">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    <div id="div_msg2"></div>
+    
+</body>
+</html>
+<script>
+
+    var listaAlunos = []
+
+    function registrar() {
+        
+        var nome = ipt_nome.value;
+        var nota = ipt_nota.value;
+
+        if (nome == '' || nota < 0 || nota > 10) {
+            alert ('Valores invalidos')
+        } else {
+            var aluno = {
+            nomes: nome,
+            notas: nota
+        }
+        listaAlunos.push(aluno);
+        listarAlunos();
+        }    
+    }
+
+    function listarAlunos (){
+
+        div_msg.innerHTML = ''
+
+        for (var posicao = listaAlunos.length - 1; posicao >=0 ; posicao--) {
+            var alunoAtual = listaAlunos[posicao]
+            div_msg.innerHTML += `${alunoAtual.nomes} ${alunoAtual.notas} <br>`
+        }
+
+    }
+
+    function analisar() {
+         parte1.style.display = 'none'
+         parte2.style.display = 'block'
+
+
+     }
+       
+    function pesquisar() {
+        var intervaloInicio = Number (ipt_minimo.value);
+        var intervaloFinal = Number (ipt_maximo.value);
+
+        if (intervaloInicio < 0 || intervaloInicio > 10 ||
+        intervaloFinal < 0 || intervaloFinal > 10 || intervaloInicio 
+        > intervaloFinal) {
+            alert("Dados inválidos para a pesquisa")
+        } else {
+
+        var alunosNoIntervalo = 0;
+        var somaDaNotas = 0;
+
+        var maiorNota = listaAlunos[0].notas;
+        var menorNota = listaAlunos[0].notas;
+
+
+        for (var posicao = 0; posicao < listaAlunos.length; posicao++) {
+            
+            
+            var alunoRodada = listaAlunos[posicao]
+
+        if (alunoRodada.notas > intervaloFinal && alunoRodada.notas < intervaloFinal) {
+            div_msg2.innerHTML += `${alunoRodada.nomes}<br>`
+
+            alunosNoIntervalo += 1;
+            somaDaNotas += alunoRodada.notas;
+              
+            
+            if (alunoRodada.notas > maiorNota) {
+                maiorNota = alunoRodada.notas;
+            }
+            
+            if (alunoRodada.notas < menorNota) {
+                menorNota = alunoRodada.notas;
+            }
+
+           } 
+        }
+
+        var mediaNotas = somaDaNotas / alunosNoIntervalo;
+
+        div_msg2.innerHTML += `
+            <br><br>
+            Total de alunos registrados: ${listaAlunos.length} 
+            <br>
+            Total de alunos listados: ${alunosNoIntervalo} 
+            (com nota no intervalo informado) 
+            <br>
+            Maior Nota = ${maiorNota}
+            <br>
+            Menor Nota = ${menorNota} 
+            <br>
+            Média das Notas = ${mediaNotas} 
+            
+            `
+
+    }
+ }
+
+    
+// var listasNomes = [];
+// var listasNotas = [];
+// var maior = 0;
+// var menor = 0;
+// var media = 0;
+
+// function registrar() {
+
+//     var nome = ipt_nome.value;
+//     var nota = Number(ipt_nota.value);
+    
+//     if (nome == '' || nota == '') {
+//         alert ("Campos em brancos")
+
+//     } else  if (nota <0 || nota > 10) {
+//         alert ("Valor informado na nota inválido")
+//         }
+     
+//         else {
+            
+//             listasNomes.push(nome);
+//             listasNotas.push(nota);
+            
+//             div_msg.innerHTML = ''
+//             for (var i = listasNotas.length - 1; i  >= 0; i--) {
+                
+//                 if (maior < listasNotas[i]) {
+//                     maior = listasNotas
+//                 }  
+//                 if (menor > listasNotas[i]) {
+//                     menor = listasNotas
+//                 }
+                
+                
+//                 div_msg.innerHTML += `${listasNomes[i]} ${listasNotas[i]} <br>`
+//             }
+//         } 
+//     }
+
+//     function analisar() {
+//         parte1.style.display = 'none'
+//         parte2.style.display = 'block'
+
+
+//     }
+
+//     function pesquisar() {
+        
+//         var minimo = Number(ipt_minimo.value);
+//         var maximo = Number (ipt_maximo.value);
+
+//         if ((minimo < 0 || minimo > 10) || (maximo <0 || maximo > 10)) {
+//             alert ('Valor invalido')
+//         }  else if (minimo > maximo) {
+//             alert ('Valor minimo ou maior invalidos')
+//         } else {
+
+//             div_msg2.innerHTML = ''
+//             for (var i = 0; i < listasNomes.length; i++) {
+
+//                 var alunoDaRodada = listasNotas[i];
+//                 media += alunoDaRodada
+//                 if (alunoDaRodada >= minimo && alunoDaRodada <= maximo) {
+                    
+//                     div_msg2.innerHTML = `O aluno ${listasNomes} ficou com a nota ${listasNotas}
+//                     Total de alunos registrados: ${listasNomes.length}<br>
+//                     Total de alunos listados: ${listasNomes.length} (com a nota no intervalo informado) <br>
+//                     Maior nota = ${maior} <br>
+//                     menor Nota = ${menor} <br>
+//                     Média da Nota = ${media}`
+                    
+//                 }
+//             }
+//         }
+        
+        
+        
+//     }
+
+
+</script>
+
+

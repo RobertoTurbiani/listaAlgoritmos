@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   Valor do salário: <input id="ipt_salario">
+   Valor do adicional: <input id="ipt_adicional">
+   Valor do bônus: <input id="ipt_bonus">
+   <button onclick="analisar()">Analisar minha Renda</button>
+   <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var salario = Number (ipt_salario.value);
+        var adicional = Number (ipt_adicional.value);
+        var bonus = Number (ipt_bonus.value);
+        var salarioBruto = salario + adicional + bonus;
+
+        var salarioIR = salarioBruto*12.5/100;
+        var salarioInss = (salarioBruto - salarioIR) *10/100;
+        var salarioInss2 = (salarioBruto *0.1);
+        var salarioFgts = (salarioBruto - salarioIR) *8/100 ;
+        var salarioFgts2 = (salarioInss2*0.8);
+        var salarioLiquido = salarioBruto - salarioIR - salarioInss - salarioFgts;
+        var salarioLiquido2 = salarioBruto - salarioInss2 - salarioFgts2;
+
+        var salarioLiquido15Porcento = salarioLiquido *0.15
+        var salarioLiquido15Porcento2 = salarioLiquido2 *0.15
+        var salarioLiquido15Porcento1Ano = salarioLiquido15Porcento *12
+        var salarioLiquido15Porcento1Ano2 = salarioLiquido15Porcento2 *12
+
+
+
+
+            if (salarioBruto>=10000) {
+                
+            
+            div_msg.innerHTML = `<b>Analise a sua renda</b><br>
+            com o salário de <b>R$ ${salario}</b>, com adicional de <b>R$ ${adicional}</b> e bônus de <b>R$ ${bonus}</b> você tem: 
+            <br><br> 
+            Bruto: <b>R$ ${salarioBruto}</b> <br>
+            IR: <b>R$ ${salarioIR}</b> <br>
+            INSS: <b>R$ ${salarioInss }</b> <br>
+            FGTS: <b>R$ ${salarioFgts}</b> <br>
+            Liquído: <b>R$ ${salarioLiquido}</b> <br>`
+            
+
+    }
+
+            if (salarioLiquido>= 2500){
+                
+                div_msg.innerHTML += `<br> Com a renda de <b>R$ ${salarioLiquido}</b>, é recomendado poupar <b>R$ ${salarioLiquido15Porcento}</b>, 
+                para que em um ano tenha poupado <b>R$ ${salarioLiquido15Porcento1Ano}</b>`
+
+            }
+
+
+            if (salarioBruto <10000) {
+                
+                    if (salarioBruto>=2500) {
+                    div_msg.innerHTML = `<b>Analise a sua renda</b> <br>
+                    com o salário de <b>R$ ${salario}</b>, com adicional de R$ <b>${adicional}</b> e bônus de R$ <b>${bonus}</b> você tem: 
+                    <br><br> 
+                    Bruto: <b>R$ ${salarioBruto}</b> <br>
+                    IR: <b>R$ ${0}</b> <br>
+                    INSS: <b>R$ ${salarioInss2}</b> <br>
+                    FGTS: <b>R$ ${salarioFgts2}</b> <br>
+                    Liquído: <b>R$ ${salarioLiquido2}</b> <br>`
+                }
+            
+                if (salarioLiquido>= 2500){
+                    
+                    div_msg.innerHTML += `<br> Com a renda de <b>R$ ${salarioLiquido2}</b>, é recomendado poupar <b>R$ ${salarioLiquido15Porcento2}</b>, 
+                    para que em um ano tenha poupado <b>R$ ${salarioLiquido15Porcento1Ano2}</b> `    
+
+                }
+
+        }
+  
+        
+            if (salarioBruto<2500) {
+                div_msg.innerHTML = `<b>Analise a sua renda</b><br>
+                    com o salário de <b>R$ ${salario}</b>, com adicional de <b>R$ ${adicional}</b> e bônus de <b>R$ ${bonus} você tem: </b> 
+                    <br><br> 
+                    Bruto: <b>R$ ${salarioBruto}</b> <br>
+                    IR: <b>R$ ${0}</b> <br>
+                    INSS: <b>R$ ${salarioInss2}</b> <br>
+                    FGTS: <b>R$ ${salarioFgts2}</b> <br>
+                    Liquído: <b>R$ ${salarioLiquido2}</b> <br>`
+            }
+    
+}
+
+</script>
+
+ 
+          
+
+

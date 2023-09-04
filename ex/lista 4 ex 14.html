@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_passageiro" placeholder="Passageiro">  
+    <br>  
+    <input id="ipt_distancia" placeholder="Distância">
+    <br>
+    <input type="number" min="1"  max="3"   id="ipt_corrida_bandeira" placeholder="Bandeira">   
+    <br> 
+    <input type="number" min="0"  max="23" id="ipt_horario" placeholder="Horario da corrida">
+    <br>
+    <button onclick="calcular()">Calcular corrida</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function calcular() {
+
+       
+    var passageiro =  (ipt_passageiro.value);        
+    var distancia = Number (ipt_distancia.value);
+    var corrida_bandeira =   Number (ipt_corrida_bandeira.value);        
+    var horario =   Number (ipt_horario.value);
+    
+    var corrida = corrida_bandeira * 1.25 * distancia;
+    
+    var bonus1 = corrida *0.05
+    var bonus2 = corrida *0.1
+    var bonus3 = corrida *0.15
+    var bonus4 = corrida *0.2
+    var bonus5 = corrida *0.3
+    var bonus6 = corrida *0.45
+    
+
+
+    var bandeira1Madrugada = corrida + bonus1 
+    var bandeira1Manha = corrida + bonus2 
+    var bandeira1Tarde = corrida + bonus3 
+
+    var bandeira2Madrugada = corrida + bonus2 
+    var bandeira2Manha = corrida + bonus4 
+    var bandeira2Tarde = corrida + bonus5 
+
+    var bandeira3Madrugada = corrida  + bonus3 
+    var bandeira3Manha = corrida + bonus5 
+    var bandeira3Tarde = corrida + bonus6 
+       
+
+    if (corrida_bandeira==1) {
+        
+        if (horario >= 0 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Madrugada}`);
+
+        if (horario <= 6 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Madrugada}`);
+
+    }
+
+    }
+
+    if (horario >= 7 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Manha}`);
+
+        if (horario <= 12 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Manha}`)
+
+         }
+
+}
+
+    if (horario >= 13) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Tarde}`);
+        
+        if (horario <= 23) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira1Tarde}`);
+        
+            }
+
+            }
+
+        }
+
+    if (corrida_bandeira==2) {
+        
+        
+        if (horario >= 0 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Madrugada/ 2}`);
+
+        if (horario <= 6 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Madrugada / 2}`);
+
+    }
+
+    }
+
+    if (horario >= 7 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Manha /2}`);
+
+        if (horario <= 12 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Manha /2}`)
+
+         }
+
+}
+
+    if (horario >= 13) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Tarde / 2}`);
+        
+        if (horario <= 23) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira2Tarde / 2}`);
+        
+            }
+
+
+            }
+
+        }
+
+
+        if (corrida_bandeira==3) {
+        
+        
+        if (horario >= 0 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} Km e o total da corrida sera de  ${bandeira3Madrugada /3}`);
+
+        if (horario <= 6 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira3Madrugada / 3}`);
+
+    }
+
+    }
+
+    if (horario >= 7 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira3Manha / 3}`);
+
+        if (horario <= 12 ) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira3Manha / 3}`)
+
+         }
+
+}
+
+    if (horario >= 13) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira3Tarde / 3}`);
+        
+        if (horario <= 23) {
+        div_msg.innerHTML = (`Olá ${passageiro}  sua  corrida, será na bandeira ${corrida_bandeira}, percorrerá 
+        ${distancia} e o total da corrida sera de  ${bandeira3Tarde / 3}`);
+        
+            }
+
+
+            }
+
+        }
+
+}
+
+</script>

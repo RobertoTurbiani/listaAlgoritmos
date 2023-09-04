@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_linha_x1" placeholder="Linha X1">
+    <input id="ipt_linha_x2" placeholder="Linha X2">
+    <input id="ipt_linha_y1" placeholder="Linha Y1">
+    <input id="ipt_linha_y2" placeholder="Linhay Y2">
+    <input id="ipt_coluna_x1" placeholder="coluna X1">
+    <input id="ipt_coluna_x2" placeholder="coluna X2">
+    <input id="ipt_coluna_y1" placeholder="coluna Y1">
+    <input id="ipt_coluna_y2" placeholder="coluna Y2">
+    <button onclick="analisar()">Analisar</button>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var linhaX1 = Number (ipt_linha_x1.value); 
+        var linhaX2 = Number (ipt_linha_x2.value);
+        var linhaY1 = Number (ipt_linha_y1.value);
+        var linhaY2 = Number (ipt_linha_y2.value);
+
+        var colunaX1 = Number (ipt_coluna_x1.value);
+        var colunaX2 = Number (ipt_coluna_x2.value);
+        var colunaY1 = Number (ipt_coluna_y1.value);
+        var colunaY2 = Number (ipt_coluna_y2.value);
+
+        if (linhaY1 > linhaX1  ) {
+            if (linhaY2 > linhaX2) {
+                if ( colunaY1 > colunaX1 ) {
+                    if ( colunaY2 > colunaX2) {
+                        alert (`1`)
+                    } else {
+                    alert (` 0`)
+                }
+            
+                } else {
+                alert (`0`)
+            } 
+
+            } else {
+                alert (`0`)
+            }
+           
+            } else {
+            alert (`0`)
+            }
+
+    }
+
+
+</script>

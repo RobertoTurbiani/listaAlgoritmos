@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_texto" placeholder="Escreva uma palavra">
+    <button onclick="analisar()">Analisar texto</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        var texto = ipt_texto.value
+        var contador = 1
+
+        while (contador <=7) {
+            
+            div_msg.innerHTML += `<br>${contador}.${texto}`;
+
+            contador +=1;
+
+        }
+
+
+    }
+
+</script>

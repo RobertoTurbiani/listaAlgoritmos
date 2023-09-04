@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_viagem" placeholder="Viagem">
+    <button onclick="adicionar()">Adicionar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var listaViagem = [];
+
+
+    function adicionar() {
+    
+        var viagem = ipt_viagem.value;
+        listaViagem.push(viagem);
+    
+        if (listaViagem.indexOf() -1 ) {
+            div_msg.innerHTML = `Ainda não viajou`
+        } 
+            div_msg.innerHTML = `
+            ${listaViagem[0]} <br>
+            ${listaViagem[2]} <br>
+            ${listaViagem[listaViagem.length -1]}`
+        
+
+    }
+
+</script>

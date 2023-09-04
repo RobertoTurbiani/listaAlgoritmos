@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_nota" placeholder="Nota">
+    <input id="ipt_freq" placeholder="Frequência">
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function avaliar() {
+        
+        var nota = Number (ipt_nota.value);
+        var freq = Number (ipt_freq.value);
+        var frequencia_reprovado = freq < 75
+        var nota_reprovado = nota < 6
+        var aprovado = nota >= 6 &&  freq>= 75
+
+        if (aprovado) {
+            div_msg.innerHTML = `Parabéns, aprovado(a)!`
+        } else if (nota_reprovado ) {
+            div_msg.innerHTML = `Reprovado(a) por nota!`
+        } else if (frequencia_reprovado ){
+            div_msg.innerHTML = `Reprovado(a) por frequência!`
+        } 
+        
+        if(frequencia_reprovado && nota_reprovado){
+            div_msg.innerHTML  =  `Reprovado por nota e frequência`}
+
+    }
+
+</script>

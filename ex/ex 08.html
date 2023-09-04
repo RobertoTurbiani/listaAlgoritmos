@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do guerreiro:<input id="ipt_nome">
+    Ki do guerreiro:<input id="ipt_ki">
+    <button onclick="ki()">Ver ki em cada forma </button>
+</body>
+</html>
+<script>
+
+    function ki() {
+        var nome = ipt_nome.value;
+        var Sayajin = Number (ipt_ki.value) * 50;
+        var Sayajin2 = Number (ipt_ki.value) * 100;
+
+        alert (" O ki do " + nome + " na forma de super sayajin é de " + Sayajin);
+        alert (" O ki do " + nome + " na forma de super sayajin é de " + Sayajin2);
+    }
+
+</script>
+
+
+
+

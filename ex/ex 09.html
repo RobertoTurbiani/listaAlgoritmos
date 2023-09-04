@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   Nota continuada: <input id="ipt_continuada">
+   Nota semestral: <input id="ipt_semestral">
+   Nome do aluno: <input id="ipt_nome">
+   <br>
+   <button onclick="media()">Média</button>
+</body>
+</html>
+<script>
+
+    function media() {
+        var continuada = Number (ipt_continuada.value) * 0.4;
+        var semestral = Number (ipt_semestral.value) * 0.6;
+        var total = continuada + semestral
+        var nome = ipt_nome.value;
+
+        alert (" A média de " + nome + " séra de " + total)
+
+    }
+
+</script>
+

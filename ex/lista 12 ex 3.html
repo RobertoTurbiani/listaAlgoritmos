@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="h2_saldo">Saldo: R$ 0.00</h2>
+    <h2 id="h2_dep">Depósitos: 0</h2>
+    <h2 id="h2_sac">Saques: 0</h2>
+    <button onclick="dep100()">Depositar 100</button>
+    <button onclick="sac20()">Saques 20</button>
+</body>
+</html>
+<script>
+ 
+    var valorDep = 0
+    var sacarValor = 20
+    var sacar = 1
+    var depositos = 1
+    
+    function dep100() {
+        
+        var banco = {
+
+            saldo: valorDep,
+            deposito: depositos,            
+        
+        somarValor: function () {
+            var soma = this.saldo ++
+            var dep = this.deposito
+            h2_saldo.innerHTML = `Saldo: R$ ${valorDep += 100}`
+            h2_dep.innerHTML = `Saldo: R$ ${dep}`
+
+            depositos ++
+            
+        }
+    }
+    banco.somarValor();
+    }
+
+
+    function sac20() {
+        
+        var banco = {
+
+            saque: sacarValor,
+            deposito:1,            
+        
+        sacarValor: function () {
+            var soma = this.saldo ++
+            var dep = this.deposito
+            h2_sac.innerHTML = `saques: R$ ${sacar}`
+            h2_saldo.innerHTML = `Sacar: R$ ${valorDep -= sacarValor}`
+
+            sacar += 1
+            depositos ++
+            
+        }
+    }
+    banco.sacarValor();
+    }
+
+</script>
+
+<!-- 3. Crie um programa que simule o uso de uma conta Poupança de banco do usuário. 
+
+Ela deve ter as seguintes informações na tela: 
+
+    Saldo: R$ 0.00 
+
+    Depósitos: 0 
+
+    Saques: 0 
+
+Abaixo dessas informações, deve haver os botões: "Depositar 100" e "Sacar 20". 
+
+Ao clicar no primeiro botão, o saldo na tela atualiza aumentando em 100 e o número de depósitos aumenta em 1. 
+
+Ao clicar no segundo botão, o saldo na tela atualiza reduzindo em 20 e o número de saques aumenta em 1. 
+
+ 
+
+É possível que o saldo fique negativo (azar do usuário ser gastador, né?).  -->

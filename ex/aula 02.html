@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - operações Aritméticas</title>
+</head>
+
+<body>
+    <h2>Minha calculadora</h2>
+
+    Insira um número <input id="ipt_num">
+
+    <br>
+    <button onclick="multiplicar()">Multiplicar por 5</button>
+    <button onclick="dividir()">Dividir por 5</button>
+    <button onclick="subtrair()">Subtrair 5</button>
+    <button onclick="somar()">Somar 5</button>
+</body>
+
+</html>
+<script>
+
+
+    function multiplicar() {
+    var numero = Number(ipt_num.value);
+    alert(numero + " Multiplicado por 5 é " + (numero * 5));
+    };
+
+    function dividir() {
+    var numero = Number(ipt_num.value);
+    alert(numero + " Dividir por 5 é " + (numero / 5));
+    };
+
+    function subtrair() {
+    var numero = Number(ipt_num.value);
+    alert(numero + " Subtrair por 5 é " + (numero - 5));
+    };
+
+    function somar() {
+    var numero = Number(ipt_num.value);
+    alert(numero + " Somado por 5 é " + Number((numero) + 5));
+    };
+
+</script>

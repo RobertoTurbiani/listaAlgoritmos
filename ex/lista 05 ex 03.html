@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <input id="ipt_qtdChocolate" placeholder="Quantidade de chocolates">
+    <button onclick="comprar()">Comprar</button>
+    
+</body>
+</html>
+<script>
+
+    function comprar() {
+       
+        var qtdChocolate = Number (ipt_qtdChocolate.value); 
+       
+        if (qtdChocolate>=12) {
+            alert (`O valor da sua compra foi de ${qtdChocolate *2.5}`)
+        } else {
+            alert (`O valor da sua compra foi de ${qtdChocolate *3}`)
+
+        }
+    
+    }
+
+</script>

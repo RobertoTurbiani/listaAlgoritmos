@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_aluno" placeholder="Alunos">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var listaAluno = [];
+
+    function cadastrar() {
+        
+        var alunos = ipt_aluno.value;
+
+        div_msg.innerHTML = ''
+
+        listaAluno.push(alunos)
+
+        for (var i = listaAluno.length -1 ; i>= 0; i--) {
+           
+            var aluno_atual = listaAluno[i]
+
+            div_msg.innerHTML += `${aluno_atual} <br>`
+        }
+
+    }
+
+</script>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_inferior" placeholder="Amostra inferior">
+    <input id="ipt_superior" placeholder="Amostra superior">
+    <input id="ipt_divisao" placeholder="divisibilidade">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var inferior = Number(ipt_inferior.value);
+        var superior = Number(ipt_superior.value);
+        var divisor = Number(ipt_divisao.value);
+        var total = 0
+        var soma = 0
+        var menor = divisor
+        var maior = 0
+
+        if (inferior > 1 && superior <= 100 && superior > inferior && divisor >= 3 && divisor <=10  ) {
+                
+                for (var contador = inferior; contador <= superior; contador++) {
+                 if(contador % divisor == 0){
+
+                     div_msg.innerHTML += `${contador}, `   
+
+                     total += 1
+                     soma += contador
+                     maior = contador
+                }
+
+                }
+                div_msg.innerHTML += `<br> QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${total} <br>`
+                div_msg.innerHTML += ` SOMATÓRIO DOS NÚMEROS EXIBIDOS:  ${soma} <br>`
+                div_msg.innerHTML += ` MÉDIA DOS NÚMEROS EXIBIDOS:  ${soma / total} <br>`
+                div_msg.innerHTML += ` MAIOR NÚMERO EXIBIDO:  ${maior} <br>`
+                div_msg.innerHTML += ` MENOR NÚMERO EXIBIDO: ${menor} `
+
+        } else {
+            alert (`Números incorretos`)
+        }
+    }
+</script>

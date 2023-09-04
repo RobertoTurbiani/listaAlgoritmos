@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Calculadora de cansaço aprimorada do aluno SPTech.</h3>
+    <br><br>
+    <h5>Meio de transporte</h5>
+    <input id="ipt_transporte" placeholder="Transporte">
+    <input id="ipt_distancia" placeholder="Distância (KM)">
+    <button onclick="analisar()">Analisar</button>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var transporte = ipt_transporte.value
+        var distancia = Number (ipt_distancia.value)
+
+
+        if (distancia<= 10) {
+            if (transporte == 'Carro' || transporte == 'Metro' || transporte == 'Onibus') {
+                alert (`Tá tranks ...`)
+        } 
+        else if (transporte == 'Bicicleta') {
+             alert (`É ... um pouco cansado ...`)
+        }
+
+        } 
+        else if (transporte == 'Carro'){
+            alert (`É ... um pouco cansado ...`)
+
+        } else if (transporte == 'Metro' || 'Onibus' ) {
+            alert ('Bem cansado ...')
+        } else if (transporte == 'Bicicleta') {
+            alert (`Vish ... tá só o pó ...`)
+        }
+
+        } 
+        
+</script>

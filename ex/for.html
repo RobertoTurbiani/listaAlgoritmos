@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_primeiro" placeholder="Primeiro numero">
+    <input id="ipt_segundo" placeholder="Segundo numero">
+    <input id="ipt_terceiro" placeholder="Terceiro numero">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg1"></div>
+    <div id="div_msg2"></div>
+    <div id="div_msg3"></div>
+    <div id="div_msg4"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var num1 = Number(ipt_primeiro.value);
+        var num2 = Number(ipt_segundo.value);
+        var num3 = Number(ipt_terceiro.value);
+
+        // for (var contador = 0; contador <=num1; contador++) {
+            
+        //     if (contador % 2 == 0) {
+
+        //         /* Se alterar o numero de pois da porcentagem ele vira multiplo diferente*/
+        //         div_msg1.innerHTML += `Esse if e multiplo de 2:   ${contador} <br>`
+        //     }
+        // }
+
+        // for (var contador2 = 0; contador2 <= num2; contador2++) {
+            
+        //     if (contador2 % 2 == 1) {
+
+        //     /* Se alterar o numero de pois da porcentagem ele vira multiplo diferente*/
+        //     div_msg2.innerHTML += `Esse if é de numeros impares:   ${contador2} <br>`
+        //     }
+
+        // }
+
+        // for (var contador3 = 0; contador3 <= num3; contador3++) {
+        //     /* Se trocar os numeros nos != esses numeros nao vao aparecer no contador*/
+        //     if (contador3 != 3 && contador3 != 4 && contador3 != 7 && contador3 != 9 && contador3 != 10 && contador3 != 12) {
+        //         div_msg3.innerHTML += `Esses Numeros são diferentes por isso não apareccem ${contador3} <br>`
+        //     }
+        // }
+
+        // for (var contador4 = num1; contador4 <= num3 ; contador4++) {
+            
+        //     if (num1 >= num2 && num1 <= num3) {
+
+        //         div_msg4.innerHTML += `Esses numeros vao se repetir enquanto o num for maior q  o num2 e menor q o num 3 ${contador4} <br>`
+        //     }
+
+        // }
+
+        for (var index = 0; index <=num1; index++) {
+            var menor = 0
+            if (menor = index) {
+                
+                div_msg4.innerHTML += `<br>  numero ${index}`
+            } else{
+            div_msg4.innerHTML += `<br> menor numero ${index}`
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_economia" placeholder="Meta de economia">
+    <input id="ipt_guardou" placeholder="Quanto guardou">
+    <button onclick="analisar()">Analisar economia</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var objetivo = Number (ipt_economia.value);
+        var guardou = Number (ipt_guardou.value);
+        var meta = objetivo - guardou
+        var diferenca = guardou - objetivo
+
+        if (guardou == objetivo) {
+            div_msg.innerHTML = (`Parabéns, meta alcançada!`)
+        } else if (guardou > objetivo){
+            div_msg.innerHTML += (`<br>
+            Meta ultrapassada em ${diferenca}`)
+        } else {
+            div_msg.innerHTML = (`Força! Ainda em busca da meta! Falta ${meta}`)
+        }
+
+    }
+
+</script>6

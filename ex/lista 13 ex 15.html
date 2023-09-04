@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    Nome do Produto: <input id="inputNome">
+    Preço de Compra: <input id="inputPreco">
+    <button onclick="CadastrarProduto()">Cadastrar</button>
+    <button onclick="ExibirRelatorio()">Relatório de estoque</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var nomes = [];
+    var precos = [];
+
+    function CadastrarProduto() {
+        var nome = inputNome.value;
+        var preco = Number(inputPreco.value);
+
+        nomes.push(nome);
+        precos.push(preco);
+        div_msg.innerHTML = "Produto Cadastrado!"
+    }
+
+    function ExibirRelatorio(){
+        var maiorPreco = 0;
+        var menorPreco = 0;
+        var somaPrecos = 0;
+        for (var i = 0; i < precos.length; i++) {
+            somaPrecos += precos[i];
+            if(maiorPreco < precos[i]){
+                maiorPreco = i;
+            }
+            if(menorPreco > precos[i]){
+                menorPreco = i;
+            }
+        }
+        var mediaPrecos = (somaPrecos * 1.25) / precos.length;
+        div_msg.innerHTML = `
+        Total de produtos: ${nomes.length} <br>
+        Produto mais caro: ${nomes[maiorPreco]} <br>
+        Produto mais barato: ${nomes[menorPreco]} <br>
+        Soma dos preços de compra dos produtos: R$${somaPrecos} <br>
+        Média de preço de venda dos produtos: R$${mediaPrecos} <br>
+        ` 
+        for (var i = 0; i < nomes.length; i++) {
+            var precoVenda = precos[i] * 1.25;
+            div_msg.innerHTML += `
+            <br>
+                Produto ${i+1}: ${nomes[i]} <br>
+                Preço de compra: R$${precos[i]}. Vender por R$${precoVenda}<br>
+            `
+        }
+    }
+</script>

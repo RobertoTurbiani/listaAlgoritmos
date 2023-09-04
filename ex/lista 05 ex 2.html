@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <input id="ipt_saldo" placeholder="Saldo">    
+    <input id="ipt_debito" placeholder="Débito"> 
+    <button onclick="analisar()">Analisar conta</button>   
+    <div id="div_msg" style="color: blue;"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+
+        var saldo = Number (ipt_saldo.value);
+        var debito = Number (ipt_debito.value);
+        var saldoAtual = saldo - debito;
+        
+        if (saldoAtual>=0) {
+            div_msg.innerHTML = (`<i style="color: blue;">${saldoAtual}</i>`)
+        } else {
+            div_msg.innerHTML = (`<b style="color: red;"> ${saldoAtual}</b>`)
+        }
+
+    }
+
+</script>

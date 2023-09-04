@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_num" placeholder="Número">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var numero = Number (ipt_num.value);
+
+        if (numero <= 20 || numero >= 100) {
+                alert (`Insira um número entre 20 e 100`)
+            } 
+
+        for (var contador = 0; contador <= numero; contador++) {
+          
+          if (contador % 5 == 0) {
+
+                div_msg.innerHTML += `${contador} <br>`
+
+            }
+            
+        }
+
+    }
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_fruta" placeholder="Fruta">
+    <button onclick="adicionar()">Adicionar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var listaFrutas = []
+
+    function adicionar() {
+        var fruta = ipt_fruta.value
+
+        listaFrutas.push(fruta)
+
+        div_msg.innerHTML = '' 
+        for (var i = 0; i < listaFrutas.length ; i++) {
+            
+            var fruta_atual =  listaFrutas[i];
+
+          div_msg.innerHTML += `${i +1} - ${fruta_atual} <br>`;
+        }
+    }
+
+
+
+</script>
+<!-- 
+email.indexOf(".") = email.lenght -1
+alert('O email não pode terminar com .') -->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Primeiro Número:<input id="ipt_primeiro">
+    Segundo Número:<input id="ipt_segundo">
+    <br>
+    <button onclick="somar()">Somar</button>
+    <button onclick="subtrair()">diferença</button>
+    <button onclick="multiplicar()">Produto</button>
+    <button onclick="dividir()">Razão</button>
+    <br>
+    <span id="span_msg"></span>
+</body>
+</html>
+<script>
+
+    function somar() {
+        var num1 = Number (ipt_primeiro.value);
+        var num2 = Number (ipt_segundo.value);
+        var resultado = num1 + num2
+        alert ("A soma entre" + num1 + " e " + num2 + " é " + resultado);
+        // span_msg.innerHTML = ("A soma entre " + num1 + " e " + num2 + " é " + resultado);
+    }
+
+    function subtrair() {
+        var num1 = Number (ipt_primeiro.value);
+        var num2 = Number (ipt_segundo.value);
+        var resultado = num1 - num2
+        alert ("A Diferença entre" + num1 + " e " + num2 + " é " + resultado);
+        // span_msg.innerHTML = ("A diferença entre " + num1 + " e " + num2 + " é " + resultado);
+
+    }
+
+    function multiplicar() {
+        var num1 = Number (ipt_primeiro.value);
+        var num2 = Number (ipt_segundo.value);
+        var resultado = num1 * num2
+        alert ("o produto entre" + num1 + " e " + num2 + " é " + resultado);
+        // span_msg.innerHTML = ("A Produto entre " + num1 + " e " + num2 + " é " + resultado);
+
+    }
+
+    function dividir() {
+        var num1 = Number (ipt_primeiro.value);
+        var num2 = Number (ipt_segundo.value);
+        var resultado = num1 / num2
+        alert ("A razão entre" + num1 + " e " + num2 + " é " + resultado);
+        // span_msg.innerHTML = ("A razão entre " + num1 + " e " + num2 + " é " + resultado);
+
+    }
+
+</script>

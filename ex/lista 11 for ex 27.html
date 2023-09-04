@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_numero" placeholder="Número">
+    <input id="ipt_divisao" placeholder="divisao">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+
+    function analisar() {
+        
+        var numero = Number(ipt_numero.value);
+        var divisao = Number(ipt_divisao.value);
+        var soma =0
+
+        if (divisao < numero && divisao > 1) {
+            
+            for (var contador = 1; contador <= numero; contador++) {
+                    if ( contador % divisao == 0) {
+                        div_msg.innerHTML += `${contador} <br>`
+                        soma += contador
+                    } 
+                  
+                }
+                div_msg.innerHTML += `Soma total: ${soma} <br>`
+        } else {
+            alert (`Número invalido`)
+        }
+    }
+
+</script>

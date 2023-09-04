@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_frequencia" placeholder="Frequência do aluno">
+    <button onclick="analisar()">Analisar frequência</button>
+    <div id="div_msg"></div>
+
+
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var freq = Number (ipt_frequencia.value);
+
+        if (freq>=50) {
+            div_msg.innerHTML = (`<img src="https://tse4.mm.bing.net/th?id=OIP.cbTMJ7O99aguvK3Mv5fmSgHaE7&pid=Api&P=0" height="150px">`)
+        } else {
+            div_msg.innerHTML = (`<img src="https://tse3.mm.bing.net/th?id=OIP.TL7g1m5p1ZWk328vq5sDiAHaD3&pid=Api&P=0" height="150px">`)
+        }
+    }
+
+
+</script>

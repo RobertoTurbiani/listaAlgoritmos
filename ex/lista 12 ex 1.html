@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button onclick="analisar()">Analisar</button>
+        <input id="ipt_vit" placeholder="Vitorias">
+        <input id="ipt_emp" placeholder="Empate">
+        <input id="ipt_der" placeholder="Derrotas">
+        <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+ function analisar() {
+    
+    var time = {
+
+        vitorias: Number (ipt_vit.value),
+        empates: Number(ipt_emp.value),
+        derrota: Number(ipt_der.value),
+        somarPontos: function (){
+            var pontos = this.vitorias * 3 + this.empates;
+            div_msg.innerHTML = `O time terminou o campeonato com  ${pontos} pontos`;
+        },
+    };
+    time.somarPontos();
+    }
+   
+
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_deposito" placeholder="Quantidade de depósitos">
+    <input id="ipt_valor" placeholder="valor do depósito">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var depositos = Number(ipt_deposito.value);
+        var valor = Number(ipt_valor.value);
+
+        for (var contador = 1; contador <=depositos; contador++) {
+            var total = valor * contador
+            
+            div_msg.innerHTML += `${contador}° Mês: R$ ${total} <br>`
+            
+        }
+        div_msg.innerHTML += ` Total guardado: R$ ${total}`
+    }
+
+</script>

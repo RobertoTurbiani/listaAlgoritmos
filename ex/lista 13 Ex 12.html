@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_nome" placeholder="Nome">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var nomes = [];
+
+    function cadastrar() {
+        
+        var nome = ipt_nome.value;
+
+        
+        if (nomes.indexOf(nome) != -1 ) {
+            alert (`Não pode mais de 1 filho com o mesmo nome!`) 
+            return;
+        }
+        nomes.push(nome)
+    }
+
+    function atualizar() {
+
+        var valorPublica = nomes.length * 1500
+        var valorParticular = nomes.length * 3000
+     
+            div_msg.innerHTML = `Você tem ${nomes.length} filhos. <br>
+        Seu custo mensal será aproximadamente R$ ${valorParticular} se colocar eles em escola particular <br> 
+        ou R$ ${valorPublica}se eles estudarem em escola pública `
+    
+      
+        
+      
+     
+    }
+
+
+</script>
+
+<!-- 12. Crie um programa o qual: 
+
+a) Pergunte ao usuário o nome de um filho seu 
+
+b) Ao clicar em "Cadastrar", o nome do filho fica cadastrado num lugar que o usuário não vê, porém NÃO permita o cadastro de nomes repetidos. Em caso de tentativa de nome repetido, exiba um alert com a frase "Não pode mais de 1 filho com o mesmo nome!" 
+
+c) Ao clicar em "Atualizar Família", deve aparecer um texto como este abaixo: 
+
+   Você tem X filhos 
+
+   Seu custo mensal será aproximadamente R$Y se colocar eles em escola particular ou R$Z se eles estudarem em escola pública 
+
+Onde X é a quantidade de filhos cadastrados. 
+
+Y é o resultado do seguinte cálculo: quant de filhos x 3000, com 2 casas decimais. 
+
+Z é o resultado do seguinte cálculo: quant de filhos x 1500, com 2 casas decimais. 
+
+  -->

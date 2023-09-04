@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_projeto" placeholder="Projeto">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="mostrar()">Mostrar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    var listaProjeto = [];
+
+    function cadastrar() {
+        
+        var projeto = ipt_projeto.value;
+
+        listaProjeto.push(projeto)
+
+        div_msg.innerHTML = '';
+        for (var i = 0; i < listaProjeto.length; i++) {
+            
+            var projetoAtual = listaProjeto[i]
+
+            if (i < 4 ) {
+                div_msg.innerHTML = ` Você já fez ${listaProjeto.length} projetos. Por isso você é um profissional Júnior <br>`
+            } else if (i < 12) {
+                div_msg.innerHTML += `  Pleno desde o ${listaProjeto[3]}° projeto <br>`
+            } else {
+                div_msg.innerHTML += `  Senior desde o ${listaProjeto[12]}° projeto <br>`
+            }
+
+        }
+
+    }
+
+    function mostrar() {
+        
+        for (var i2= listaProjeto.length;  i2 >= 0; i2--) {
+            var projetoAtual = listaProjeto[i2]
+             div_msg.innerHTML += `${projetoAtual} <br>`
+        }
+
+    }
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_saldo" placeholder="Saldo">
+    <button onclick="verificar()">Verificar finanças</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function verificar() {
+        
+        var saldo = Number (ipt_saldo.value);
+
+        if (saldo>0) {
+            div_msg.innerHTML = (`<span style="color: blue">Saldo positivo</span>`)
+        } else {
+            
+            if (saldo <0) {
+                div_msg.innerHTML = (`<span style="color: red">Saldo positivo</span>`)
+                }   else {
+                div_msg.innerHTML = (`<span style="color: black">Saldo positivo</span>`)
+                }
+        }
+
+    }
+
+</script>
+

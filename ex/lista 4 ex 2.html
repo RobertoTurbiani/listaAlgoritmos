@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="ipt_latinha" placeholder="Quantidade de latinha">
+    <button onclick="refri()">Quantos refri</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+
+    
+    function refri() {
+        
+        var latinha = Number (ipt_latinha.value) * 365;
+    
+        if (latinha >=500) {
+            div_msg.innerHTML = `${latinha} Cuidado com a diabetes!`;
+        }
+        
+        if (latinha <500) {
+            div_msg.innerHTML = `${latinha}`;
+        }
+
+}
+
+
+</script>

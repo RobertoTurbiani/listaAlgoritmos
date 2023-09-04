@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_hora_dia" placeholder="Hora do dia">
+    <br>
+    <button onclick="analisar()">Ver recomendação</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var horaDia = Number (ipt_hora_dia.value);
+
+
+        if (horaDia >= 19 && horaDia <= 21) {
+            div_msg.innerHTML = (`Não é recomendável que você assista sua série favorita no horário ${horaDia}`)
+        } else {
+            div_msg.innerHTML = (`O horário ${horaDia} é adequado para assistir sua série favorita!`)
+        }
+    }
+
+</script>

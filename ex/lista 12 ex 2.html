@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_timeUM" placeholder="Time A">
+    <input id="ipt_timeDois" placeholder="Time B">
+    <br>
+    <input id="ipt_vitoria" placeholder="Vitorias A">
+    <input id="ipt_vitoriaB" placeholder="Vitorias B">
+    <br>
+    <input id="ipt_empate" placeholder="Empate A">
+    <input id="ipt_empateB" placeholder="Empate B">
+    <br>
+    <input id="ipt_derrota" placeholder="Derrota A">
+    <input id="ipt_derrotaB" placeholder="Derrota B">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+    <br>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+
+
+        var camp ={
+
+            Time1: ipt_timeUM.value,
+            Time2: ipt_timeDois.value,
+            vitorias: Number(ipt_vitoria.value),
+            vitoriasB: Number(ipt_vitoriaB.value),
+            empate: Number (ipt_empate.value),
+            empateB: Number (ipt_empateB.value),
+            derrota: Number (ipt_derrota.value),
+            derrotaB: Number (ipt_derrotaB.value),
+            
+            somarPontos: function () {
+             var pontos =this.vitorias*3 + this.empate
+             var pontosB =this.vitoriasB*3 + this.empateB
+             var timeA = this.Time1
+             var timeB = this.Time2
+            div_msg.innerHTML += ` O time ${timeA} terminou o campeonato com  ${pontos} pontos <br> `;
+            div_msg.innerHTML += ` O time ${timeB} terminou o campeonato com  ${pontosB} pontos `;
+
+            },
+        };
+        camp.somarPontos();
+    }
+
+
+</script>
+
+<!-- 2. Crie um programa no qual informe os nomes dos times, quantas vitórias, quantos empates e quantas derrotas 2 times de futebol possuem no campeonato. Após clicar num botão "Comparar campanhas", exiba uma frase como esta: 
+
+      O time A terminou o campeonato com AX pontos 
+
+      O time B terminou o campeonato com BX pontos 
+
+Onde o X de cada time é calculado assim: 
+
+Vitória: 3 pontos 
+Empate: 1 ponto 
+Derrota: 0 pontos  -->

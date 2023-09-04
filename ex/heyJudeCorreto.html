@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Hey Jude</title>
+</head>
+<body>
+    Quantidade de takes a serem simuados: <input id="inputQtdTakes">
+    Quantidade mínima de Hey Jude(s): <input id="inputQtdMinHey">
+
+    <button onclick="SimularTakes()">Simular</button>
+
+    <div id="divResultado"></div>
+</body>
+</html>
+
+<script>
+    function SimularTakes(){
+        divResultado.innerHTML = "";
+
+        var qtdTakes = Number(inputQtdTakes.value);
+        var qtdMinHey = Number(inputQtdMinHey.value);
+
+        var primeiraParteLetra = 
+        `
+        Hey, Jude, don't make it bad <br>
+        Take a sad song and make it better <br>
+        Remember to let her into your heart <br>
+        Then you can start to make it better <br>
+        Hey, Jude, don't be afraid <br>
+        You were made to go out and get her <br>
+        The minute you let her under your skin <br>
+        Then you begin to make it better <br>
+        And anytime you feel the pain, Hey, Jude, refrain <br>
+        Don't carry the world upon your shoulders <br>
+        For well you know that it's a fool <br>
+        Who plays it cool <br>
+        By making his world a little colder <br>
+        `
+
+        var segundaParteLetra =
+        `
+        Hey, Jude, don't let me down <br>
+        You have found her, now go and get her <br>
+        Remember to let her into your heart <br>
+        Then you can start to make it better <br>
+        So let it out and let it in, Hey, Jude, begin <br>
+        You're waiting for someone to perform with <br>
+        And don't you know that it's just you, Hey, Jude, you'll do <br>
+        The movement you need is on your shoulder <br>
+        `
+
+        var terceiraParteLetra =
+        `
+        Take a sad song and make it better <br>
+        Remember to let her under your skin <br>
+        Then you'll begin to make it better, better, better, better, better... oh! <br>
+        `
+
+        //Contadores para estatísticas finais
+        var qtdTotalNahs = 0;
+        for(var take = 1; take <= qtdTakes; take++){
+            var nahTipo1 = "";
+            var nahTipo2 = "";
+            //Regra de cor
+            if(take % 2 == 0){
+                nahTipo1 += `<span style="color: blue">`
+            }else{
+                nahTipo1 += `<span style="color: red">`
+            }
+            //Lógica de repetição dos "Nah"s
+            for(var nah = 0; nah <= 9; nah++){
+                if(nah == 0){
+                    nahTipo1 += "<b>Nah, ";
+                    qtdTotalNahs++;
+                }else if(nah != 9){
+                    nahTipo1 += "nah, ";
+                    qtdTotalNahs++;
+                }else{
+                    nahTipo1 += "</b><br>";
+                    nahTipo2 = nahTipo1;
+                    qtdTotalNahs += 9;
+                    nahTipo2 += "</span><b>Hey Jude</b><br><br>";
+                }
+            }
+            //Lógica de repetição dos "Hey Jude"
+            var qtdHeys = qtdMinHey + take;
+            var nahTipo2Completo = "";
+            for(var hey = 1; hey <= qtdHeys; hey++){
+                nahTipo2Completo += nahTipo2;
+                qtdTotalNahs += 9;
+            }
+
+            //Escrever a letra pro take
+            divResultado.innerHTML += `<b>Take: ${take}</b> <br>`;
+            divResultado.innerHTML += primeiraParteLetra;
+            divResultado.innerHTML += nahTipo1;
+            divResultado.innerHTML += segundaParteLetra;
+            divResultado.innerHTML += nahTipo1;
+            divResultado.innerHTML += terceiraParteLetra;
+            divResultado.innerHTML += nahTipo2Completo;
+        }
+
+        //Exibição estatísticas finais
+        divResultado.innerHTML += 
+        `
+        Quantidade total de takes: ${qtdTakes} <br>
+        Média de "Nah" por take: ${qtdTotalNahs / qtdTakes} <br>
+        Quantidade total de "Nah" somada em todos os takes: ${qtdTotalNahs} <br>
+        `
+        //Exibição Imagem
+        if(qtdTotalNahs >= 0 && qtdTotalNahs <= 487){
+            divResultado.innerHTML += `<img src="beatles_felizes.png">`
+        }else if(qtdTotalNahs == 648 || qtdTotalNahs == 810){
+            divResultado.innerHTML += `<img src="beatles_medio.jpeg">`
+        }else{
+            divResultado.innerHTML += `<img src="beatles_desanimados.jpg">`
+        }
+    }
+</script>

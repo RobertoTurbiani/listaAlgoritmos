@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_login" placeholder="Login">
+    <input id="ipt_senha" placeholder="Senha">
+    <button onclick="entrar()">Entrar</button>
+    <div id="div_msg"></div>
+
+</body>
+</html>
+<script>
+
+
+    function entrar() {
+        
+        var login = ipt_login.value
+        var senha = ipt_senha.value
+
+        var senha_correta = senha == 'seinha'
+        var login_correta = login == 'aidimin' 
+    
+        if (login_correta && senha_correta ) {
+            div_msg.innerHTML = `    <div style="color: blue;">Usuário autenticado com sucesso!</div>
+`
+        }   else if (!senha_correta) {
+            div_msg.innerHTML += `<div style="color: red;">Sua senha está inválida!</div><br>`
+            alert (`Entre em contato com o suporte para recuperar sua senha`)
+        }   else if (!login_correta){
+            div_msg.innerHTML += `<div style="color: red;">Seu login está inválido!</div><br>`
+        }   
+
+        if (!senha_correta && !login_correta) {
+            div_msg.innerHTML = `    <div style="color: red;">Sua senha e Login estão invalidos</div>`
+        }
+    }
+
+</script>

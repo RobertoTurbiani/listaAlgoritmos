@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_numero" placeholder="Número">
+    <input id="ipt_frase" placeholder="Frase">
+    <button onclick="analisar()">Papagaio</button>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var num = Number(ipt_numero.value);
+        var frase = ipt_frase.value;
+        var contador = 0
+
+        while (contador < num) {
+            contador +=1
+
+            var mensagem = "";
+            var contador2 = 0;
+            
+            
+            while (contador2 < contador) {
+                
+                mensagem += `${frase}\n`;
+                contador2 +=1
+                
+            }
+            alert (mensagem)
+        }
+    }
+
+</script>

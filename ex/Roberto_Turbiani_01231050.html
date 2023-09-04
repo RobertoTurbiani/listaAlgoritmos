@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Antiquário Velho Valioso</title>
+  </head>
+  <body>
+    <h1>Antiquário Velho Valioso</h1>
+
+    <h2>Cadastro</h2>
+    <label for="input_codigo">Código da Peça:</label>
+    <input type="number" id="input_codigo" /><br />
+    <label for="input_valor">Valor da Peça:</label>
+    <input type="number" id="input_valor" /><br />
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <h2>Ajuste de Preço</h2>
+    <label for="input_codigoInicial">Código da Peça Inicial:</label>
+    <input type="number" id="input_codigoInicial" /><br />
+    <label for="input_codigoFinal">Código da Peça Final:</label>
+    <input type="number" id="input_codigoFinal" /><br />
+    <label for="input_percentual">Percentual de Reajuste:</label>
+    <input type="number" id="input_percentual" /><br />
+    <button onclick="ajustar()">Ajustar</button>
+
+    <h2>Lista de Peças Ajustadas</h2>
+    <div id="div_pecas_ajustadas"></div>
+
+    <h2>Resumo do Ajuste</h2>
+    <div id="div_resumo"></div>
+  </body>
+</html>
+<script>
+
+    var lista_codigos = [];
+    var lista_precos = [];
+
+    function cadastrar() {
+        
+    var codigo = Number(input_codigo.value);
+    var preco = Number(input_valor.value);
+
+    if (codigo < 1000 || codigo > 3999 || preco < 100) {
+        alert ('O número inserido no campo de código está invalido')
+    } else {
+        lista_codigos.push(codigo);
+    }
+    
+    if (preco < 100 || codigo < 1000 || codigo > 3999) {
+        alert ('O valor está abaixo de 100 reais!')
+    } else{
+        lista_precos.push(preco);
+    }
+
+    }
+
+
+    function ajustar() {
+        
+        var codigo_inicial = Number(input_codigoInicial.value);
+        var codigo_final = Number(input_codigoFinal.value);
+        var percentual = Number(input_percentual.value);
+        
+        if (percentual <1) {
+            alert ('Entre com o percentual de reajuste')
+        }
+
+        if (lista_codigos == '') {
+            alert ('O ajuste é realizado somente após o cadastramento das peças')
+        } else {   
+                
+            var codigo_intervalo = 0;
+
+            div_pecas_ajustadas.innerHTML = ''
+            div_resumo.innerHTML = ''
+            
+            for (var i = 0; i < lista_codigos.length; i++) {
+             
+                var valor_total = 0
+                var codigo_atual = lista_codigos[i] 
+                var preco_reajuste = lista_precos[i] * percentual 
+                var menor = lista_precos[0]  
+                var soma_preco = 0
+                if (codigo_atual >= codigo_inicial && codigo_atual <= codigo_final) {
+                    
+                    div_pecas_ajustadas.innerHTML += ` Código da peça = ${codigo_atual} - Valor Anterior: ${lista_precos[i]} Valor ajustado = ${preco_reajuste.toFixed(2)}<br>`
+                    
+                    codigo_intervalo += 1
+                    soma_preco += preco_reajuste        
+                }
+
+                if (menor > lista_precos[i]) {
+                    menor = lista_precos[i]
+                }
+                
+                var media = soma_preco / codigo_intervalo 
+
+                        div_resumo.innerHTML = `RESUMO das peçãs de ${codigo_inicial} até ${codigo_final} <br>
+                        Total de registros ajustados ${codigo_intervalo} <br>
+                        Valor total das peças com preço ajustado: ${valor_total += preco_reajuste} <br>
+                        Valor médio das peças com preço ajustado: ${media.toFixed(2)} <br>
+                        Menor valor após o ajuste: ${menor.toFixed(2)}`
+
+            }
+         
+            
+        }
+
+    }
+
+</script>
+
+

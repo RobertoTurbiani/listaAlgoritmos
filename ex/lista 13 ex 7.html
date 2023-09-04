@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_filme" placeholder="Filmes">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_msg"></div>
+
+</body>
+</html>
+<script>
+
+    var listaFilmes = []
+
+    function cadastrar() {
+        
+        var filmes = ipt_filme.value;
+         listaFilmes.push(filmes)
+        
+        div_msg.innerHTML = ''
+
+        for (var i = 0; i < listaFilmes.length; i++) {
+            var filme_atual = listaFilmes[i]
+            if (i % 2 == 0) {
+
+                div_msg.innerHTML += `<span style="color: blue;"> ${filme_atual}</span> <br>`
+            } else {
+                div_msg.innerHTML += `<span style="color: red;"> ${filme_atual}</span> <br>`
+
+            }
+        }
+
+    }
+
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_xicara" placeholder="Xícaras">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        
+        var xicara = Number (ipt_xicara.value);
+        var leite = '<img src="https://tse3.mm.bing.net/th?id=OIP.AWivc4NMvoji5_3aWCpe9QHaE8&pid=Api&P=0"  width="100px";>'
+        var cafe = '<img src="https://tse3.mm.bing.net/th?id=OIP.25xqnm6MDmJ4aMklGBWE5AHaFr&pid=Api&P=0"  width="100px";> <img src="https://tse3.mm.bing.net/th?id=OIP.25xqnm6MDmJ4aMklGBWE5AHaFr&pid=Api&P=0"  width="100px";>'
+
+
+        for (var contador = 1; contador <= xicara; contador++) {
+            
+            
+            div_msg.innerHTML += `${leite}  ${cafe}`
+            
+            
+        }
+
+    }
+
+</script>

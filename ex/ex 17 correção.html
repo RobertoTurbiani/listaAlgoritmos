@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div_primeira_parte">
+        <h1>Análise de performance de alunos - Registro</h1><br>
+        Entre com o nome do aluno: <input id="input_nome_aluno"><br>
+        Entre com a nota do aluno: <input id="input_nota_aluno"><br>
+        <button onclick="registrarNota()">
+            Registrar
+        </button>
+        <button onclick="mostrarAnaliseDeNotas()">
+            Analisar
+        </button>
+    </div>
+    <div id="div_segunda_parte" style="display: none">
+        <h1>Análise de performance de alunos - Pesquisa</h1>
+        Entre com o intervalo de notas:
+        <input placeholder="De" id="input_intervalo_inicio"><br>
+        <input placeholder="Até" id="input_intervalo_fim"><br>
+        <button onclick="analisarNotas()">
+            Pesquisar
+        </button>
+    </div>
+    <div id="div_lista_alunos"></div>
+</body>
+</html>
+
+<script>
+
+    var listaAlunos = [];
+    function registrarNota() {
+        var nomeAluno = input_nome_aluno.value;
+        var notaAluno = Number(input_nota_aluno.value);
+
+        if (nomeAluno == "" || notaAluno < 0 || notaAluno > 10) {
+            alert("Valores inválidos");
+        } else {
+            var aluno = {
+                nome: nomeAluno,
+                nota: notaAluno
+            }
+            listaAlunos.push(aluno);
+            listarAlunos();
+        }
+    }
+
+    function listarAlunos() {
+        div_lista_alunos.innerHTML = "";
+        for (var posicao = listaAlunos.length - 1; 
+            posicao >= 0; posicao -= 1) {
+            var alunoDaRodada = listaAlunos[posicao];
+            div_lista_alunos.innerHTML += `${alunoDaRodada.nome} <br>`;
+        }
+    }
+
+    function mostrarAnaliseDeNotas() {
+        div_lista_alunos.innerHTML = "";
+
+        div_primeira_parte.style.display = "none";
+        div_segunda_parte.style.display = "block";
+       
+    }
+
+    function analisarNotas() {
+
+        var intervaloInicio = Number(input_intervalo_inicio.value);
+        var intervaloFim = Number(input_intervalo_fim.value);
+
+        if (intervaloInicio < 0 || intervaloInicio > 10 ||
+            intervaloFim < 0 || intervaloFim > 10 ||
+            intervaloInicio > intervaloFim) {
+                alert("Dados inválidos para a pesquisa !");
+        } else {
+            var alunosNoIntervalo = 0;
+            var somaDaNotas = 0;
+
+            var maiorNota = listaAlunos[0].nota;
+            var menorNota = listaAlunos[0].nota;
+
+            for (
+                var posicao = 0;
+                posicao < listaAlunos.length;
+                posicao += 1
+            ) {
+                var alunoDaRodada = listaAlunos[posicao];
+                if (alunoDaRodada.nota >= intervaloInicio &&
+                    alunoDaRodada.nota <= intervaloFim) {
+
+                    div_lista_alunos.innerHTML += `${alunoDaRodada.nome}<br>`;
+
+                    alunosNoIntervalo += 1;
+                    somaDaNotas += alunoDaRodada.nota;
+
+                    if (alunoDaRodada.nota > maiorNota) {
+                        maiorNota = alunoDaRodada.nota;
+                    }
+
+                    if (alunoDaRodada.nota < menorNota) {
+                        menorNota = alunoDaRodada.nota;
+                    }
+                }
+            }
+
+            var mediaNotas = somaDaNotas / alunosNoIntervalo;
+
+            div_lista_alunos.innerHTML += `
+            <br><br>
+            Total de alunos registrados: ${listaAlunos.length} 
+            <br>
+            Total de alunos listados: ${alunosNoIntervalo} 
+            (com nota no intervalo informado) 
+            <br>
+            Maior Nota = ${maiorNota}
+            <br>
+            Menor Nota = ${menorNota} 
+            <br>
+            Média das Notas = ${mediaNotas} 
+            
+            `
+        }
+    }
+</script>

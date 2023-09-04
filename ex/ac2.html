@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Quantidade de pontos de Energia</h3>  Energia tem que ser entre 20 e 5000: <input id="ipt_qtd_pts_energia">
+    <h3>Quantidade de clones</h3> Quantidade de Clones tem que ser entre 0 e 250: <input id="ipt_qtd_clones">
+    <h3>Quantidade de clones de linhas</h3> Quantidade de Clones por linha tem que ser maior que  0:  <input id="ipt_qtd_clones_linha">
+    <button onclick="criar_clones()">Criar Clones</button>
+    <div id="div_msg"></div>
+   
+</body>
+</html>
+<script>
+
+    function criar_clones() {
+        
+        var qtdPtsEnergia = Number(ipt_qtd_pts_energia.value);
+        var qtdClones = Number(ipt_qtd_clones.value);
+        var qtdClonesLinha = Number(ipt_qtd_clones_linha.value);
+
+        var quantidadeCloneOk = qtdClones >= 0 && qtdClones <= 250
+        var quantidadeCloneLinhaOk = qtdClonesLinha > 0 
+        var quantidadePtsOk = qtdPtsEnergia >= 20 &&  qtdPtsEnergia <= 5000
+
+        var imagemNaruto =  ' <img src="naruto.png" height="100px"> '
+
+        
+        div_msg.innerHTML = ''
+        
+        if ( quantidadePtsOk && quantidadeCloneOk && quantidadeCloneLinhaOk ) {
+            if ((qtdClones *20 ) <= qtdPtsEnergia) {
+                
+                for (var contadorImagem = 1; contadorImagem <= qtdClonesLinha; contadorImagem++) {
+                    
+                    div_msg.innerHTML += `${imagemNaruto} `
+                    
+                    
+                }
+                var restoEnergia = (qtdPtsEnergia - qtdClones * 20) 
+
+                div_msg.innerHTML += ` 
+                   <br><br><b>ANÁLISE DA GERAÇÃO DE CLONES</b> <br>
+                   <br> Energia Inicial: ${qtdPtsEnergia} <br>
+                   <br> Qtde de Clones: ${qtdClones} <br>
+                   <br> Sobra de Energia: ${restoEnergia} `
+
+                   if (restoEnergia >= 1000 || (qtdClones >= 50 && (restoEnergia / qtdPtsEnergia *100) >= 20 )) {
+                div_msg.innerHTML += `<br> <br> PROVAVELMENTE VOCÊ VAI GANHAR <br>`
+                } else if(restoEnergia >= 500 ||( qtdClones >= 20 && (restoEnergia / qtdPtsEnergia *100) >= 10 ) ){
+                    div_msg.innerHTML += `<br> <br> A LUTA VAI SER MUITO BOA <br>`
+                } else {
+                    div_msg.innerHTML += `<br> <br> TORÇA PARA O ADVERSÁRIO SER FRAQUINHO`
+                }
+
+            }   
+        
+        
+            else {
+                alert(`A quantidade de energia restante é muito baixa`)
+            }
+            } else if (!quantidadePtsOk ){
+                alert ('Quantidade de energia muito baixa: intervalo de: 20 e 5000 ')
+            } else if ( (!quantidadeCloneOk) ) {
+                alert (`Numeros de clones invalidos: intervalo de: 0 e 250`)
+            } else if (!quantidadeCloneLinhaOk) {
+                alert (`Número de clone por linha menor que 0`)
+            }
+
+    }
+
+
+</script>

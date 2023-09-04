@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="ipt_ki" placeholder="Ki">
+    <h3>Transformar em ..</h3>
+    <button onclick="ss1()">SSJ</button>
+    <button onclick="ss2()">SSJ2</button>
+    <button onclick="ss3()">SSJ3</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function ss1() {
+        
+        var ki = Number (ipt_ki.value)*50
+        div_msg.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${ki}`
+
+    }
+
+    function ss2() {
+        var ki = Number (ipt_ki.value)* 100
+        div_msg.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${ki}`
+    }
+
+    function ss3() {
+        var ki = Number (ipt_ki.value) * 200
+        div_msg.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${ki}`
+    }
+
+</script>
+

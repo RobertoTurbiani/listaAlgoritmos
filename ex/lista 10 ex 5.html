@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_altura" placeholder="Altura">
+    <input id="ipt_peso" placeholder="Peso">
+    <button onclick="verificar()">Verificar IMC</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+
+    
+//         var nota1 = Number(input_n1.value);
+//         var nota2 = Number(input_n2.value);
+//         var frequencia = Number(input_freq.value);
+
+//         var media = (nota1 + nota2) / 2; // calculando média
+
+//         // armazenando a validação da média dentro de uma variável - quando chamar a variável, ela retornará "true" ou "false"
+//         var validacao_media = media >= 6; 
+
+//         // armazenando a validação da frequência dentro de uma variável - quando chamar a variável, ela retornará "true" ou "false"
+//         var validacao_frequencia = frequencia >= 75; 
+
+//         // usando as variáveis com as validações para gerar uma nova validação - quando chamar a variável, ela retornará "true" ou "false"
+//         var validacao_aprovacao = validacao_frequencia && validacao_media; 
+
+//         if (validacao_aprovacao) { // utiliza a variável booleana, que possui a validação completa
+//             alert("Aprovado")
+//         } else {
+//             alert("Reprovado")
+//         }
+//     }
+
+    function verificar() {
+        
+        var altura = Number (ipt_altura.value);
+        var peso = Number (ipt_peso.value);
+        var imc = peso / (altura*altura) 
+        var campo = altura && peso != ''
+        var metro = (altura >= 3) / 100
+        
+        3 = metros / 100
+       
+        1.80
+        180
+
+        2.00 = 200
+
+        var abaixo = imc <= 18.5
+        var ideal = imc <= 24.9  
+        var excesso =  imc <= 30
+        var obesidade =  imc <= 35
+
+        if (campo) {
+            
+            if (!metro) {
+            
+                if (abaixo) {
+                    div_msg.innerHTML = (`<div style="color: blue;">Abaixo do Peso ${imc}</div>`)
+                 } 
+                 else if (ideal){
+                    div_msg.innerHTML = (`<div style="color: green;">Peso Ideal ${imc}</div>`)
+                 } 
+                 else if (excesso){
+                    div_msg.innerHTML = (` <div style="color: yellow;">Excesso de Peso ${imc}</div>`)
+                 } 
+                 else if (obesidade){
+                    div_msg.innerHTML = (`<div style="color: orange;">Obesidade ${imc}</div>`)
+                 } 
+                 else {
+                    div_msg.innerHTML = (`<div style="color: red;">Obesidade Extrema ${imc}</div>`)
+                 }
+             
+            } else {
+                alert (`Por favor coloque '.' na altura`)
+            }
+                
+             } else {
+                 alert (`Campos Vazios`)
+             }
+}
+
+</script>

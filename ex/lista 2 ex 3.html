@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_tabuada" placeholder="Ver a tabuada">
+    <button onclick="tabuada()">Ver tabuada</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function tabuada() {
+        
+        var tab = Number(ipt_tabuada.value)
+
+        div_msg.innerHTML += 
+        `${tab} X 1 = ${tab*1}  <br> 
+         ${tab} X 2 = ${tab*2}  <br> 
+         ${tab} X 3 = ${tab*3}  <br> 
+         ${tab} X 4 = ${tab*4}  <br> 
+         ${tab} X 5 = ${tab*5}  <br> 
+         ${tab} X 6 = ${tab*6}  <br> 
+         ${tab} X 7 = ${tab*7}  <br> 
+         ${tab} X 8 = ${tab*8}  <br> 
+         ${tab} X 9 = ${tab*9}`
+
+    }
+
+
+</script>

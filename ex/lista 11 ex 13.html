@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_dia">
+    <button onclick="exibir()">Exibir</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+
+    function exibir() {
+        
+        var dias = Number (ipt_dia.value);
+        var contador = 1
+       
+        
+
+        while (contador <= 30) {
+            
+            if (contador % dias == 1) {
+                div_msg.innerHTML += `dia ${contador} - Musculação <br>`
+                
+            } 
+            else if (!contador % dias == 0) {
+                div_msg.innerHTML += `dia ${contador} - comer, dormir etc <br>`
+                
+            }
+    
+            contador ++;    
+                
+            }
+
+    }
+
+</script>
+
+

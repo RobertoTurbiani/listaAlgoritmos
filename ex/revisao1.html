@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt_fruta" placeholder="Fruta">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    
+    function pesquisar() {
+        var listaFrutas = ['uva','maça','banana']
+        
+        var fruta = ipt_fruta.value;
+
+        if (listaFrutas.indexOf(fruta) != -1) {
+            div_msg.innerHTML = `A fruta ${fruta} existe na lista`
+        } else {
+            div_msg.innerHTML = `A fruta ${fruta} não existe na lista`
+        }
+    }
+
+
+
+</script>
